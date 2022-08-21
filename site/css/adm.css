@@ -1,0 +1,189 @@
+@import "vars.css";
+
+	body{
+		background-color: var(--thema);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow-x: hidden;
+	}
+		header{
+			width: 100%;
+			height: 7vh;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			border-bottom: 2px solid var(--corA);
+		}
+			header button{
+				width: 32%;
+				height: 70%;
+				border: 2px solid var(--corA);
+				border-radius: 50px;
+				background-color: var(--thema);
+				color: var(--corA);
+				font-size: 3vh;
+				font-weight: bold;
+			}
+				header button:hover{
+					width: 45%;
+					border: none;
+					height: 80%;
+					background-color: var(--corA);
+					color: var(--thema);
+				}
+		main{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 3vh;
+		}
+			main .aba{
+				width: 89%;
+				display: flex;
+				flex-direction: column;
+				padding: 2vh;
+				justify-content: center;
+				align-items: center;
+			}
+				main .aba .header{
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+					height: 9vh;
+					padding: 2vh 0vw 1vh 0vw;
+					border-bottom: 2px solid var(--corA);
+				}
+					main .aba .header button{
+						width: 16%;
+						height: 5vh;
+						border-radius: 50px;
+						border: solid 2px var(--corA);
+						color: var(--corA);
+						background-color: var(--thema);
+						font-weight: bold;
+						font-size: 3vh;
+						box-shadow: 1px 2px 5px var(--corA);
+					}
+						main .aba .header button:hover{
+							width: 20%;
+							box-shadow: none;
+							border: none;
+							background-color: var(--corA);
+							color: var(--thema);
+							height: 7vh;
+							border-radius: 15px;
+						}	
+				main .aba .body{
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				}
+					main .aba .body .page{
+						width: 94%;
+						display: none;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+					}
+						main .aba .body .page h1{
+							width: 57%;
+							color: var(--corB);
+							text-align: center;
+							padding: 1vh;
+							border-bottom: solid 3px var(--corA);
+						}
+						main .aba .body .page .info{
+							width: 100%;
+							margin-top: 2vh;
+							border: 4px solid var(--corA);
+							height: 25vh;
+							display: flex;
+							flex-direction: column;
+							border-radius: 9px;
+						}
+							main .aba .body .page .info .pt1{
+								width: 100%;
+								height: 50%;
+								display: flex;
+								flex-direction: row;
+								justify-content: space-around;
+								align-items: center;
+								color: var(--corB);
+								font-size: 3vh;
+								font-weight: bold;
+							}
+								main .aba .body .page .info .pt1 img{
+								height: 60%;
+								border: 3px solid var(--corA);
+								padding: 1vh;
+								border-radius: 14px;
+								}
+								main .aba .body .page .info .pt1 label{
+								text-align: center;
+								}
+							
+							main .aba .body .page .info .pt2{
+								width: 100%;
+							    height: 50%;
+							    display: flex;
+							    flex-direction: row;
+							    justify-content: space-around;
+							    align-items: center;
+							    color: var(--corB);
+							    font-size: 3vh;
+							    font-weight: bold;
+							}
+								main .aba .body .page .info .pt2 select{
+									width: 29%;
+									text-align: center;
+									color: var(--thema);
+									font-size: 5vh;
+									font-weight: bold;
+									border-radius: 12px;
+									padding: 1vh;
+									background-color: var(--corA);
+									border: none;
+								}
+									select:focus-visible, select:focus{
+										outline: none;
+									}
+								main .aba .body .page .info .pt2 input[type=text]{
+									width: 24%;
+								    height: 38%;
+								    font-size: 3vh;
+								    font-weight: bold;
+								    color: var(--corA);
+								    background-color: var(--thema);
+								    border: 3px solid;
+								    border-radius: 26px;
+								    text-align: center;
+								}
+									main .aba .body .page .info .pt2 input[type=text]:focus{
+										outline: none;
+									}
+								main .aba .body .page .info .pt2 input[type=submit]{
+									width: 24%;
+									height: 40%;
+									font-size: 3vh;
+									font-weight: bold;
+									color: var(--thema);
+									background-color: var(--corA);
+									border: none;
+									border-radius: 26px;
+								}
+									main .aba .body .page .info .pt2 input[type=submit]:hover{
+										width: 25%;
+										height: 59%;
+										color: var(--corA);
+										background-color: var(--thema);
+										box-shadow: 0 0 10px;
+									}

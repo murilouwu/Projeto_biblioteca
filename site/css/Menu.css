@@ -6,6 +6,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		overflow-x: hidden;
 	}
 		header{
 			padding: 1vh;
@@ -29,7 +30,7 @@
 					font-size: 3vh;
 				}
 			header button{
-				background-image: url(../imgs/procura.png);
+				background-image: url(../imgs/itens/procura.png);
 			    background-repeat: no-repeat;
 			    background-size: 2vw 4vh;
 			    background-position: center;
@@ -78,45 +79,6 @@
 			justify-content: center;
 			align-items: center;
 		}
-			.formImage{
-				padding: 4vh;
-				width: 57%;
-				height: 40vh;
-				display: none;
-				flex-direction: column;
-				justify-content: space-around;
-				align-items: center;
-				border-bottom: solid 6px var(--corA);
-			}
-				.formImage input[type=password], .formImage input[type=text], .formImage input[type=email], .formImage input[type=number], .formImage select{
-					border-radius: 4px;
-					text-align: center;
-					font-weight: bold;
-					height: 8%;
-					border: 3px solid var(--corA);
-					width: 77%;
-					background-color: var(--thema);
-					color: var(--corA);
-				}
-				.formImage input[type=submit]{
-					width: 23%;
-					height: 10%;
-					font-size: 2vh;
-					font-weight: bolder;
-					color: var(--thema);
-					background-color: var(--corA);
-					border: none;
-					border-radius: 50px;
-					box-shadow: 0 0 7px var(--corA);
-				}
-				.formImage label{
-					font-size: 2vh;
-					color: var(--corA);
-					font-weight: bold;
-					border: 5px solid;
-					border-radius: 37px;
-					padding: 1vh;
-				}
 			main .slide{
 				width: 97vw;
 				height: 42vh;
@@ -138,12 +100,61 @@
 						flex-direction: column;
 						justify-content: center;
 						align-items: center;
-						color: white;
+						color: var(--corB);
 						font-size: 2vh;
 						font-weight: bold;
 						border-radius: 30px 0px 0px 0px;
 					}
+						main .slide .bigcard .text h1{
+							font-style: italic;
+							padding-bottom: 1vh;
+							width: 66%;
+							justify-content: center;
+							display: flex;
+							flex-direction: column;
+						}
+						main .slide .bigcard .text p{
+							width: 56%;
+							height: 42%;
+							font-size: 3vh;
+							overflow-y: auto;
+							overflow-x: hidden;
+							word-wrap: break-word;
+							padding-top: 1vh;
+							padding-bottom: 1vh;
+						}
+						main .slide .bigcard .text button{
+							width: 56%;
+							border-radius: 50px;
+							border: solid 2px var(--corA);
+							box-shadow: 3px 2px 9px var(--corA);
+							padding: 0.5vh;
+							font-weight: bold;
+							color: var(--corA);
+							background-color: var(--thema);
+							font-style: italic;
+						}
+							main .slide .bigcard .text button:hover{
+								width: 70%;
+								box-shadow: none;
+								background-color: var(--corA);
+								color: var(--thema);
+								border: none;
+							}	
+						main .slide .bigcard .text h3{
+							color: var(--corA);
+							font-size: 5vh;
+							position: absolute;
+							margin: 0vw 0vh 16vw -88vh;
+						}
+						main .slide .bigcard .text h6{
+							color: var(--corB);
+							font-size: 2.5vh;
+							position: absolute;
+							margin: 0vw 0vh -36vh 0vw;
+						}
 					main .slide .bigcard img{
+						
 						width: 30%;
 					}
 			main .espaso{

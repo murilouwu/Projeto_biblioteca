@@ -1,6 +1,7 @@
   :root{
     --thema: rgb(32 30 38);
     --corA: rgb(251 203 44);
+    --corB: rgb(251 243 244);
   }
   *{
     margin: 0px;
@@ -17,10 +18,10 @@
     }
     ::-webkit-scrollbar{
 
-      width: 12px;
+      width: 8px;
     }
 
     ::-webkit-scrollbar-thumb{
-      background: var(--cor);
-      border-radius: 6px;
+      background: var(--corA);
+      border-radius: 3px;
     }

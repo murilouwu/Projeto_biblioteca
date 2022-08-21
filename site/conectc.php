@@ -1,108 +1,188 @@
 <?php
-	$server = 'localhost';
-    $user = '';
-    $pass = '';
-    $bd = '';
-    $con =  new Mysqli($server, $user, $pass, $bd);
+	$server = 'profrodofo.com.br';
+	$porta = '3306'
+    $user = 'profro26_projeto';
+    $pass = '@senhaforte';
+    $bd = 'profro26_biblioteca';
+    $con =  new Mysqli($server, $porta, $user, $pass, $bd);
+    //verificar exitencia do banco
     if(!$con){
+
 		echo "Erro na conexão".$con->error;
 	}
+	
+	//adiministração de usuarios
+		//tornar um usuario adm
+	    function addAdm($rm){
+	    	//var atualizar sql
+	    	$sql = 'UPDATE usuario SET adm = '.$adm.' WHERE rm = '.$rm;
+	    	
+	    	//enviar para o banco
+	    	$res = $GLOBALS['conn']->query($sql);
 
-    function addADM($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha, $adm){
-        //inserir dados usuario
-    	$sql = 'INSERT INTO usuario (rm, nome, email, dt_nascimento, genero, telefone, senha, adm) 
-        VALUES ('.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", '.$adm.')';
-    	
-        $destino = 'imgs/perfisImgs/';
-    	 
-    	$sql = 'INSERT INTO usuario WHERE rm = '.$rm;
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res){
-    		echo "excluindo com sucesso";
-        }
-    	else{
-    		echo "Erro a excluir";
-        }
-    }
-    function excluirADM($rm){
-    	$sql = 'INSERT INTO usuario WHERE rm = '.$rm;
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res){
-    		echo "excluindo com sucesso";
-        }
-    	else{
-    		echo "Erro a excluir";
-        }
-    }
-    function AtualizarUsuario($rm,$nome,$nasc,$gen,$tel){
-    	$sql = 'UPDATE usuario SET nome= "'.$nome.'"",
-    			dt_nascimento = "'.$nasc.'", genero = "'.$gen.'",
-    			telefone = "'.$tel.'" WHERE rm =' .$rm ; ]
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res){
-    		echo "Atualizado com sucesso";
-        }
-    	else{
-    		echo "Erro ao atualizar";
-        }
-    }
-    function Login($nome, $senha, $retorno){
-    	$sql = 'SELECT * FROM usuario WHERE email = "'.$email.'" AND senha="'.$senha.'"';
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res->num_roms > 0){
-    		$retorno['erro'] = false;
-    		$user = $res-fecth_object();
-    		$retorno['dados'] = $user;
-    	}else{
-    		$retorno['erro'] = true;
-    	}
-    	if($tipo == "jason"){
-    		return jason_encode($retorno);
-    	}else{
-    		return $retorno;
-    	}
-    }
-	function TrocarFoto($rm,$foto){
-		$destino = 'usuario/fotos/'.$rm.'/'.$foto['name'];
-		if(move_uploaded_file($foto['tmp_name'], $destino))
-			$sql = 'SELECT * FROM usuario WHERE rm = '.$rm;
-			$sql = $GLOBALS['conn']->query($sql);
-			$user = $res->fetch_array();
-			unlink($user['perfil']);
-			$sql = 'UPDATE usuario SET perfil = "'.$destino.'" WHERE rm = '.$rm;
-			$res = $GLOBALS['coon']->query($sql);
-			if($res){
-				echo "Atualizado com sucesso"
-			else
-				echo "erro ao atualizar foto"
-			}
+	    	//verificar erro
+	    	if(!$res){
+	    		echo "<script>alert('Erro a ADMificar user');</script>";
+	        }
+	    }
+
+		//criar usuario
+	    function addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha, $adm){
+	        //variavel para inserir dados usuario
+	    	$sql = 'INSERT INTO usuario (rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "basico", '.$adm.')';
+	        
+	        //usar banco
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	
+	    	//verificar se deu erro
+	    	if(!$res){
+	    		echo "<script>alert('Erro a Cadastrar');</script>";
+	        };
+	    }
+	    
+	    //excluir usuario
+	    function deleteUser($rm){
+	    	//delete user e rm
+	    	$sql = 'DELETE FROM usuario WHERE rm = '.$rm;
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	
+	    	//verificar se deu erro
+	    	if(!$res){
+	    		echo "<script>alert('Erro ao Excluir');</script>";
+	        }
+	    }
+
+	    //atulizar informações do usuario
+	    function updateUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha, $bio, $status, $adm){
+	    	//var atualizar sql
+	    	$sql = 'UPDATE usuario SET nome = "'.$nome.'", email = "'.$email.'", dt_nascimento = "'.$dt_nascimento.'", genero = "'.$genero.'", telefone = "'.$telefone.'", senha = "'.$senha.'", bio = "'.$bio.'", status = "'.$status.'", adm = '.$adm.' WHERE rm = '.$rm;
+	    	
+	    	//enviar para o banco
+	    	$res = $GLOBALS['conn']->query($sql);
+
+	    	//verificar erro
+	    	if(!$res){
+	    		echo "<script>alert('Erro a Atualizar');</script>";
+	        }
+	    }
+
+	   	//logar
+	    function Login($nome, $senha, $retorno, $tipo){
+	    	//var para verificar exitencia do user
+	    	$sql = 'SELECT * FROM usuario WHERE email = "'.$email.'" AND senha="'.$senha.'"';
+	    	//enviar para o banco
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	//confirir se deu erro
+	    	if($res->num_roms > 0){
+	    		//não deu erro
+	    		$retorno['erro'] = false;
+	    		//user obj
+	    		$user = $res-fecth_object();
+	    		//retornar user
+	    		$retorno['dados'] = $user;
+	    	}else{
+	    		//deu erro
+	    		$retorno['erro'] = true;
+	    	}
+	    	//verificar se quem está logando no app ou no site
+	    	if($tipo == "jason"){
+	    		//pelo app
+	    		return jason_encode($retorno);
+	    	}else{
+	    		//pelo site
+	    		return $retorno;
+	    	}
+	    }
+
+	    //atualizar foto
+		function TrocarFoto($rm,$foto){
+			//destino da imagem
+			$destino = 'imgs/users/'.$rm;
+			//verificar se enviou
+			if (move_uploaded_file($foto['tmp_name'], $destino)){ 
+			    echo "<script>alert('Imagem enviada');</script>"; 
+			} 
+			else { 
+			    //não enviou
+			    echo "<script>alert('Imagem não pode ser enviada');</script>"; 
+			} 
 		}
-	}
-	function TrocarSenha($rm){
-		$nova_senha = "",
-		$sql = 'SELECT * FROM usuario WHERE rm = '.$rm;
-		$res = $GLOBALS['conn']->query($sql);
-		$user = $res->fetch_array();
-		if(mail($user['email'],"Biblioteca [Nova senha]",$msg)){
-			$sql = 'UPDATE usuario SET senha = "'.$nova_senha.
-    	}
-    }
-    function CadastrarGenero($nome){
-    	$sql = 'INSERT INTO genero VALUES(null, "'.$nome.'")';
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res){
-    		echo 'Gênero cadastrado';
-    	}else{
-    		echo 'Erro ao Cadastrar';
-    	}
-    }
-    function excluirGenero($nome){
-    	$sql = 'DELETE fROM genero WHERE cd=""';
-    	$res = $GLOBALS['conn']->query($sql);
-    	if($res){
-    		echo 'Gênero cadastrado';
-    	}else{
-    		echo 'Erro ao Cadastrar';
-    	}	
-    }
+
+	//adicionar items
+		//adicionar genero
+	    function addGenero($nome){
+	    	$sql = 'INSERT INTO genero (nome) VALUES ("'.$nome.'")';
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};
+	    }
+	    //adicionar autor
+	    function addAutor($nome){
+	    	$sql = 'INSERT INTO autor (nome) VALUES ("'.$nome.'")';
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};
+	    }
+	    //adicionar editora
+	    function addEditora($nome){
+	    	$sql = 'INSERT INTO editora (nome) VALUES ("'.$nome.'")';
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};
+	    }
+	//excluir items
+	    //excluir genero
+	    function deleteGenero($cd){
+	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};	
+	    }
+	    //excluir autor
+	    function deleteAutor($cd){
+	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};	
+	    }
+	    //excluir editora
+	    function deleteEditora($cd){
+	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
+	    	$res = $GLOBALS['conn']->query($sql);
+	    	if($res){
+	    		echo '<script>alert("sucesso");</script>';
+	    	}else{
+	    		echo '<script>alert("erro");</script>';
+	    	};	
+	    }
+
+	//função para data
+	function dataAtual($fun)
+ 	{
+ 		if ($fun === 0) {
+ 			$data = date('d-m-Y');
+ 			echo $data;
+ 		}else{
+ 			$data = date('d-m');
+ 			$ano = date('Y');
+ 			$anoCalc = $ano - 70;
+ 			$res = $data."-".$anoCalc;
+ 			echo $res;
+ 		}
+ 	}
 ?>
