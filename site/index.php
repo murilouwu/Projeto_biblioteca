@@ -33,12 +33,5 @@
 		<button id="bnt1Aba" onclick="mostrar(['#formB','#bnt1Aba','#formA','#bntAba'], 2)">Tem conta, Logue agora</button>
 	</div>
 	<script src="java.js"></script>
-	<script>
-		//carregou a pagina
-		window.onload = ()=>{
-			//mostrar só um form
-			mostrar(['#formB','#bnt1Aba','#formA','#bntAba'], 2);
-		}
-	</script>
 </body>
 </html>

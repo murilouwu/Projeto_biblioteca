@@ -154,9 +154,11 @@
 									border: none;
 								}
 									select:focus-visible, select:focus{
+										
 										outline: none;
 									}
 								main .aba .body .page .info .pt2 .ocultar{
+									
 									display: none;
 								}
 								main .aba .body .page .info .pt2 input[type=text]{
@@ -171,6 +173,7 @@
 								    text-align: center;
 								}
 									main .aba .body .page .info .pt2 input[type=text]:focus{
+										
 										outline: none;
 									}
 								main .aba .body .page .info .pt2 input[type=submit]{
@@ -212,13 +215,14 @@
 								font-weight: bold;
 							}
 								main .aba .body .page .info2 .pt1 img{
-								height: 60%;
-								border: 3px solid var(--corA);
-								padding: 1vh;
-								border-radius: 14px;
+									height: 60%;
+									border: 3px solid var(--corA);
+									padding: 1vh;
+									border-radius: 14px;
 								}
 								main .aba .body .page .info2 .pt1 label{
-								text-align: center;
+									
+									text-align: center;
 								}
 							
 							main .aba .body .page .info2 .pt2{
@@ -233,6 +237,7 @@
 								font-weight: bold;
 							}
 								main .aba .body .page .info2 .pt2 .ocultar{
+									
 									display: none;
 								}
 								main .aba .body .page .info2 .pt2 input[type=text]{
@@ -247,6 +252,7 @@
 									text-align: center;
 								}
 									main .aba .body .page .info2 .pt2 input[type=text]:focus, main .aba .body .page .info2 .pt2 input[type=date]:focus, main .aba .body .page .info2 .pt2 input[type=number]:focus, main .aba .body .page .info2 .pt2 textarea{
+										
 										outline: none;
 									}
 								main .aba .body .page .info2 .pt2 input[type=date]{
@@ -365,20 +371,51 @@
 								width: 40%;
 							}
 							main .aba .body .page .cad input{
-								width: 10%;
+								    width: 36%;
+    								height: 6vh;
+    								font-size: 3vh;
+    								font-weight: bold;
+    								color: var(--corA);
+    								background-color: var(--thema);
+    								border: 3px solid;
+    								border-radius: 26px;
+    								text-align: center;
+    								margin-top: 1vh;
 							}
-								main .aba .body .page .cad input:focus{
+							main .aba .body .page .cad input:focus{
 									outline: none;
 								}
 							main .aba .body .page .cad select{
-								width: 10%;
+								    width: 36%;
+    								height: 6vh;
+    								font-size: 3vh;
+    								font-weight: bold;
+   									color: var(--corA);
+    								background-color: var(--thema);
+    								border: 3px solid;
+    								border-radius: 26px;
+    								text-align: center;
+    								margin-top: 1vh;
 							}
 							main .aba .body .page .cad textarea{
-								width: 10%;
+								width: 36%;
+    							height: 14vh;
+    							font-size: 3vh;
+    							font-weight: bold;
+    							color: var(--corA);
+    							background-color: var(--thema);
+    							border: 3px solid;
+    							border-radius: 26px;
+    							text-align: center;
+    							margin-top: 1vh;
+    							resize: none;
 							}
 							main .aba .body .page .cad label{
 								width: 20%;
+    							color: var(--corA);
+    							font-size: 3vh;
+    							padding-left: 15vh;
 							}
-								main .aba .body .page .cad label:hover{
-									width: 30%;
+							main .aba .body .page .cad label:hover{
+								width: 30%;
 								}
