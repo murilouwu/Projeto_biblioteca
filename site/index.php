@@ -1,3 +1,7 @@
+<?php
+	include('conectc.php');
+	//sesseion_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +15,8 @@
 		<form id="formA" method="get" class="login">
 			<label>Anmeldung</label>
 			<input type="email" name="email" placeholder="Digite seu Nome">
-			<input type="password" name="senha" placeholder="Digite seu Nome">
-			<a href="RecuperarSenha.php">Esqueseu a senha</a>
+			<input type="password" name="senha" placeholder="Digite sua senha">
+			<a href="RecuperarSenha.php">Esqueceu a senha</a>
 			<input type="submit" name="env001" placeholder="Digite seu Nome" value="Einloggen">
 		</form>
 		<button id="bntAba" onclick="mostrar(['#formA','#bntAba','#formB','#bnt1Aba'], 2)">Não tem conta, crie uma agora</button>
@@ -33,12 +37,31 @@
 		<button id="bnt1Aba" onclick="mostrar(['#formB','#bnt1Aba','#formA','#bntAba'], 2)">Tem conta, Logue agora</button>
 	</div>
 	<script src="java.js"></script>
-	<script>
-		//carregou a pagina
-		window.onload = ()=>{
-			//mostrar só um form
-			mostrar(['#formB','#bnt1Aba','#formA','#bntAba'], 2);
-		}
-	</script>
 </body>
 </html>
+<?php
+	//logar
+	if(isset($_GET['env001'])){
+		$nome = $GET_['email'];
+		$senha = $GET_['senha'];
+		$retorno = array(
+			'erro'=> false,
+			'dados' => array()
+		);
+		$tipo = 'page';
+		Login($nome, $senha, $retorno, $tipo);
+	}
+	//Criar conta
+	if(isset($_GET['env002'])){
+		//get
+		$rm = $_GET['rm'];
+		$nome = $_GET['nome'];
+		$email = $_GET['email'];
+		$dt_nascimento = $_GET['nacimento'];
+		$genero = $_GET['genero'];
+		$telefone = $_GET['telefone'];
+		$senha = $_GET['senha'];
+		//enviar
+		addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha);
+	}
+?>

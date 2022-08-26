@@ -1,10 +1,10 @@
 <?php
-	$server = 'profrodofo.com.br';
-	$porta = '3306'
-    $user = 'profro26_projeto';
-    $pass = '@senhaforte';
-    $bd = 'profro26_biblioteca';
-    $con =  new Mysqli($server, $porta, $user, $pass, $bd);
+	$server = 'localhost';
+	//$porta = '3306'
+    $user = 'root';
+    $pass = '';
+    $bd = 'biblioteca';
+    $con =  new Mysqli($server, $user, $pass, $bd);
     //verificar exitencia do banco
     if(!$con){
 
@@ -27,12 +27,12 @@
 	    }
 
 		//criar usuario
-	    function addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha, $adm){
+	    function addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha){
 	        //variavel para inserir dados usuario
-	    	$sql = 'INSERT INTO usuario (rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "basico", '.$adm.')';
+	    	$sql = 'INSERT INTO usuario (rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "basico", false)';
 	        
 	        //usar banco
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	
 	    	//verificar se deu erro
 	    	if(!$res){
@@ -44,7 +44,7 @@
 	    function deleteUser($rm){
 	    	//delete user e rm
 	    	$sql = 'DELETE FROM usuario WHERE rm = '.$rm;
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	
 	    	//verificar se deu erro
 	    	if(!$res){
@@ -58,7 +58,7 @@
 	    	$sql = 'UPDATE usuario SET nome = "'.$nome.'", email = "'.$email.'", dt_nascimento = "'.$dt_nascimento.'", genero = "'.$genero.'", telefone = "'.$telefone.'", senha = "'.$senha.'", bio = "'.$bio.'", status = "'.$status.'", adm = '.$adm.' WHERE rm = '.$rm;
 	    	
 	    	//enviar para o banco
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 
 	    	//verificar erro
 	    	if(!$res){
@@ -71,7 +71,7 @@
 	    	//var para verificar exitencia do user
 	    	$sql = 'SELECT * FROM usuario WHERE email = "'.$email.'" AND senha="'.$senha.'"';
 	    	//enviar para o banco
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	//confirir se deu erro
 	    	if($res->num_roms > 0){
 	    		//não deu erro
@@ -112,7 +112,7 @@
 		//adicionar genero
 	    function addGenero($nome){
 	    	$sql = 'INSERT INTO genero (nome) VALUES ("'.$nome.'")';
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
@@ -122,7 +122,7 @@
 	    //adicionar autor
 	    function addAutor($nome){
 	    	$sql = 'INSERT INTO autor (nome) VALUES ("'.$nome.'")';
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
@@ -132,7 +132,7 @@
 	    //adicionar editora
 	    function addEditora($nome){
 	    	$sql = 'INSERT INTO editora (nome) VALUES ("'.$nome.'")';
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
@@ -143,7 +143,7 @@
 	    //excluir genero
 	    function deleteGenero($cd){
 	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
@@ -153,7 +153,7 @@
 	    //excluir autor
 	    function deleteAutor($cd){
 	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
@@ -163,7 +163,7 @@
 	    //excluir editora
 	    function deleteEditora($cd){
 	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{

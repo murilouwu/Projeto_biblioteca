@@ -52,7 +52,7 @@ CREATE TABLE emprestimo(
 	dt_devolucao DATE,
 	status VARCHAR(100),
 	id_usuario INT,
-	FOREIGN KEY (id_usuario) REFERENCES usuario(cd)
+	FOREIGN KEY (id_usuario) REFERENCES usuario(rm)
 );
 
 CREATE TABLE lista_livroslidos(
@@ -60,7 +60,7 @@ CREATE TABLE lista_livroslidos(
 	nota INT(1),
 	id_usuario INT,
 	id_livro INT,
-	FOREIGN KEY (id_usuario) REFERENCES usuario(cd),
+	FOREIGN KEY (id_usuario) REFERENCES usuario(rm),
 	FOREIGN KEY (id_livro) REFERENCES livro(cd)
 );
 
@@ -69,7 +69,7 @@ CREATE TABLE lista_espera(
 	possicao INT,
 	id_usuario INT,
 	id_livro INT,
-	FOREIGN KEY (id_usuario) REFERENCES usuario(cd),
+	FOREIGN KEY (id_usuario) REFERENCES usuario(rm),
 	FOREIGN KEY (id_livro) REFERENCES livro(cd)
 );
 
