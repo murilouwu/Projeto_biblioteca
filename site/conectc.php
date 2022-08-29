@@ -63,10 +63,10 @@
 		//tornar um usuario adm
 	    function addAdm($cd, $adm){
 	    	//var atualizar sql
-	    	$sql = 'UPDATE usuario SET adm = '.$adm.' WHERE cd = '.$cd;
+	    	$sql = 'UPDATE usuario SET adm = '.$adm.', status = "ADM" WHERE cd = '.$cd;
 	    	
 	    	//enviar para o banco
-	    	$res = $GLOBALS['conn']->query($sql);
+	    	$res = $GLOBALS['con']->query($sql);
 
 	    	//verificar erro
 	    	if(!$res){
@@ -114,6 +114,8 @@
 	    	if(!$res){
 	    		echo "<script>alert('Erro ao Excluir');</script>";
 	        }
+	        $img = "imgs/user/".$cd.".png";
+	        unlink($img); 
 	    }
 
 	    //atulizar informações do usuario
@@ -289,17 +291,19 @@
 	    }
 	    //excluir autor
 	    function deleteAutor($cd){
-	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
+	    	$sql = 'DELETE FROM autor WHERE cd='.$cd;
 	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';
 	    	}else{
 	    		echo '<script>alert("erro");</script>';
-	    	};	
+	    	};
+	    	$img = "imgs/autores/".$cd.".png";
+	        unlink($img);
 	    }
 	    //excluir editora
 	    function deleteEditora($cd){
-	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
+	    	$sql = 'DELETE FROM editora WHERE cd='.$cd;
 	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
 	    		echo '<script>alert("sucesso");</script>';

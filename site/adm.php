@@ -7,8 +7,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="imgs/Title.png">
-		<link rel="stylesheet" type="text/css" href="imgs/itens/Title.png">
+		<link rel="shortcut icon" href="imgs/itens/Title.png">
+		<link rel="stylesheet" type="text/css" href="css/adm.css">
 		<title>Adiministração site</title>
 	</head>
 	<body>
@@ -54,8 +54,8 @@
 									';
 								}else{
 									$select = '
-										<option value="true">ADM</option>
-										<option value="false" selected>User</option>
+										<option value="1">ADM</option>
+										<option value="0" selected>User</option>
 									';
 								};
 								$texto = '
@@ -349,4 +349,29 @@
 		//recarregar pagina
 		mover('adm.php');
 	}
+
+	//atualizações
+		//user
+			//mudar poder
+			if(isset($_POST['admUser'])){
+				$cod = $_POST['cd'];
+				$poder = $_POST['adm'];
+
+				addAdm($cod, $poder);
+				mover('adm.php');
+			}
+			//deletar
+			if(isset($_POST['deleteUser'])){
+				$cod = $_POST['cd'];
+
+				deleteUser($cod);
+				mover('adm.php');
+			}
+		//autores
+			//deletar
+			if(isset($_POST['deleteAutor'])){
+				$cd = $_POST['cd'];
+
+				deleteAutor($cd);
+			}
 ?>

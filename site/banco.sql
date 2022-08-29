@@ -1,3 +1,6 @@
+CREATE DATABASE biblioteca;
+USE biblioteca;
+
 CREATE TABLE usuario(
 	cd INT PRIMARY KEY AUTO_INCREMENT,
 	rm INT,
