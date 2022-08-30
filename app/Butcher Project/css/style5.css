@@ -1,0 +1,124 @@
+ @import "vars.css";
+*{
+    margin: 0px;
+    padding: 0px;
+    transition: all 0.25s;
+    font-size: 4vh;
+    font-weight: bold;
+  }
+  body{
+    background-color: var(--corfundo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    .topo{
+        width: 100%;
+        height: 10vh;
+        border-bottom: solid var(--corline) 1vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .topo img{
+            width: 29%;
+            height: auto;
+        }
+        .topo a{
+            color: var(--cor2);
+            text-decoration: none;
+            font-size: 2vh;
+            font-weight: bold;
+            margin-top: 2vh;
+        }
+    .meio{
+        height: 76vh;
+        width: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+        .espaso{
+            width: 100%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+            .espaso .mos{
+                overflow-x: scroll;
+                overflow-y: hidden;
+                flex-direction: row;
+                display: flex;
+                background: rgb(1 10 29);
+                height: 26vh;
+            }
+                .espaso .mos img{
+                    width: 62vw;
+                    height: 54vw;
+                    margin-left: -1vh;
+                    background: rgb(1 10 29);
+
+                }
+                .mos2{
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    display: flex;
+                    flex-direction: row;
+                    
+                    padding: 10px;
+                }
+                .botao{
+                    display: flex;
+                    flex-direction: row;
+                    background-color: var(--corline);
+                    color: var(--corfundo);
+                    outline: none;
+                    height: 7vh;
+                    padding: 1vh;
+                    margin-left: 12vh;
+
+                }
+              .mos3{
+                 font-size: 20px;
+                  color: white;
+              }
+    .pe{
+        padding: 1vh;
+        margin-top: 100vh;
+        width: 100%;
+        height: 10vh;
+        border-top: solid var(--corline) 1vh;
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+        .pe button{
+            width: 15%;
+            border: none;
+            outline: none;
+            background-color: var(--none);
+        }
+            .pe button img{
+                width: 100%;
+            }
+        .cor{
+            color:white;
+            padding: 10px;
+            margin-left: 8vh;
+        }
+        .coment{
+            color: var(--corline);
+            background-color: rgb(1, 10, 29);
+            backdrop-filter: blur(2px);
+            width: 70vw;
+            height: 20vh;
+            margin-left: 5vh;
+            margin-top: 12vh;
+            font-size: 2vh;
+            border: 3px solid;
+            border-radius: 20px;
+            resize: none;
+        }
+       

@@ -1,0 +1,88 @@
+ @import "vars.css";
+ *{
+    margin: 0px;
+    padding: 0px;
+    transition: all 0.25s;
+    font-size: 4vh;
+    font-weight: bold;
+  }
+  body{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.fundo_login_blur{
+    background-color: rgba(1 10 29 / 60%);
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.topo_page_login{
+    width: 80vw;
+    height: 44vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .topo_page_login img{
+        width: 90%;
+        height: 66%;
+        
+    }
+    .topo_page_login h1{
+        color: var(--corline);
+        font-weight: bold;
+        font-size: 9vh;
+    }
+.corpo_page_login{
+    width: 80%;
+    height: 56vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+    .corpo_page_login input, .corpo_page_login button{
+        padding: 0.3vh;
+        border: none;
+        border-radius: 6px;
+        width: 80%;
+        height: 5vh;
+        text-align: center;
+        outline: 4px solid;
+    }
+        .corpo_page_login input:focus{
+            outline: none;
+        }
+        .corpo_page_login a{
+            border-radius: 10px;
+            font-size: 2vh;
+            padding: 0.5vh;
+            text-decoration: none;
+            color: var(--corline);
+            background-color: var(--corfundo);
+            width: 73%;
+            text-align: center;
+            outline: 2px solid;
+        }
+        .corpo_page_login input[type=email], .corpo_page_login input[type=password]{
+            background-color: var(--corfundo);
+            color: var(--corline);
+        }
+        .corpo_page_login button{
+            background-color: var(--corline);
+            color: var(--corfundo);
+            outline: none;
+            height: 10vh;
+            padding: 1vh;
+        }
+       

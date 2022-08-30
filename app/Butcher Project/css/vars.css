@@ -1,0 +1,23 @@
+:root{
+    --none: rgba(1,1,1, 0); 
+    --corfundo: rgb(1, 10, 29);
+    --corline: rgb(247, 196, 58);
+    --cor2: rgb(236, 248, 250);
+ }
+ /*web-kit*/
+    input[type=file]{
+      display: none;
+    }
+    ::-webkit-inner-spin-button{
+
+      -webkit-appearance: none;
+    }
+    ::-webkit-scrollbar{
+
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background: rgb(1 10 29);
+      border-radius: 6px;
+    }
