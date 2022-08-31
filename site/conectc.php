@@ -76,32 +76,34 @@
 
 		//criar usuario
 	    function addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha){
-	        //ver quantos users há
-	        $sql = 'SELECT COUNT(cd) AS vl from usuario';
-	        //pesquisar no banco
-	        $res = $GLOBALS['con']->query($sql);
-	        //verificar se deu erro
-	        if ($res){
-	        	//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-		        //variavel para inserir dados usuario
-		    	$sql = 'INSERT INTO usuario (cd, rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$cd.','.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "novato", 0)';
-		        
-		        //usar banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	
-		    	//verificar se deu erro
-		    	if($res){
-		    		//criar imagem de perfil inicial
-		    		copy('imgs/user/base.png', 'imgs/user/'.$cd.'.png');
-		    	}else{
-		    		echo "<script>alert('Erro a Cadastrar');</script>";
-		        };
-	        }else{
-	    		echo "<script>alert('Erro');</script>";
-	        };
+	        for ($i=1; $i>0; $i++){
+	        	//ver quantos users há
+		        $sql = 'SELECT * FROM usuario WHERE cd ='.$i;
+		        //pesquisar no banco
+		        $res = $GLOBALS['con']->query($sql);
+		        //verificar se deu erro
+		        if ($res){
+		        	//amarzenado valor
+		        	$valores = $res->fetch_object();
+		        	//criando o cd perfeito
+		        	$cd = $valores->vl + 1;
+			        //variavel para inserir dados usuario
+			    	$sql = 'INSERT INTO usuario (cd, rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$cd.','.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "novato", 0)';
+			        
+			        //usar banco
+			    	$res = $GLOBALS['con']->query($sql);
+			    	
+			    	//verificar se deu erro
+			    	if($res){
+			    		//criar imagem de perfil inicial
+			    		copy('imgs/user/base.png', 'imgs/user/'.$cd.'.png');
+			    	}else{
+			    		echo "<script>alert('Erro a Cadastrar');</script>";
+			        };
+		        }else{
+		    		echo "<script>alert('Erro');</script>";
+		        }; 
+	        }
 	    }
 	    
 	    //excluir usuario

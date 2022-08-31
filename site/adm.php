@@ -331,7 +331,7 @@
 			//extenção de imagem
 			$ext = strtolower(substr($_FILES['foto']['name'],-4));
 			//novo noma para imagem
-			$NewNomeImg = $cod."-".$_POST['quantidade']."-".$_POST['ano']."-".$_POST['autor'].$ext;
+			$NewNomeImg = $cod."-".$_POST['ano']."-".$_POST['autor'].$ext;
 			//destino da imagem
 			$destino = 'imgs/livros/'.$NewNomeImg;
 			//imagem
