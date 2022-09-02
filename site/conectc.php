@@ -76,31 +76,29 @@
 
 		//criar usuario
 	    function addUser($rm, $nome, $email, $dt_nascimento, $genero, $telefone, $senha){
-	        //ver quantos users há
-	        $sql = 'SELECT COUNT(cd) AS vl from usuario';
-	        //pesquisar no banco
-	        $res = $GLOBALS['con']->query($sql);
-	        //verificar se deu erro
-	        if ($res){
-	        	//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-		        //variavel para inserir dados usuario
-		    	$sql = 'INSERT INTO usuario (cd, rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$cd.','.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "novato", 0)';
-		        
-		        //usar banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	
-		    	//verificar se deu erro
-		    	if($res){
-		    		//criar imagem de perfil inicial
-		    		copy('imgs/user/base.png', 'imgs/user/'.$cd.'.png');
-		    	}else{
-		    		echo "<script>alert('Erro a Cadastrar');</script>";
-		        };
-	        }else{
-	    		echo "<script>alert('Erro');</script>";
+	        $cd = 0;
+	        for ($i=1; $i>0; $i++) { 
+	        	//var para verificar exitencia do user
+	    		$sql = 'SELECT * FROM usuario WHERE cd = '.$i;
+	        	//pesquisar no banco
+	        	$res = $GLOBALS['con']->query($sql);
+	        	if(!$res){
+	        		$cd = $i;
+	        		break; 
+	        	}
+	        }
+        	//variavel para inserir dados usuario
+	    	$sql = 'INSERT INTO usuario (cd, rm, nome, email, dt_nascimento, genero, telefone, senha, bio, status, adm) VALUES ('.$cd.','.$rm.', "'.$nome.'", "'.$email.'", "'.$dt_nascimento.'", "'.$genero.'", "'.$telefone.'", "'.$senha.'", "...", "novato", 0)';
+	        
+	        //usar banco
+	    	$res = $GLOBALS['con']->query($sql);
+	    	
+	    	//verificar se deu erro
+	    	if($res){
+	    		//criar imagem de perfil inicial
+	    		copy('imgs/user/base.png', 'imgs/user/'.$cd.'.png');
+	    	}else{
+	    		echo "<script>alert('Erro a Cadastrar');</script>";
 	        };
 	    }
 	    
@@ -174,98 +172,95 @@
 	//adicionar items
 		//adicionar genero
 	    function addGenero($nome){
-	    	//quantos generos tem
-    		$sql = 'SELECT COUNT(cd) AS vl from genero';
+	    	$cd = 0;
+	        for ($i=1; $i>0; $i++) { 
+	        	//var para verificar exitencia do genero
+	    		$sql = 'SELECT * FROM genero WHERE cd = '.$i;
+	        	//pesquisar no banco
+	        	$res = $GLOBALS['con']->query($sql);
+	        	if(!$res){
+	        		$cd = $i;
+	        		break; 
+	        	}
+	        }
+        	//var para enviar para o banco
+	    	$sql = 'INSERT INTO genero (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
 	    	//enviar para o banco
 	    	$res = $GLOBALS['con']->query($sql);
-	    	if ($res){
-	    		//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-	        	//var para enviar para o banco
-		    	$sql = 'INSERT INTO genero (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
-		    	//enviar para o banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	//verificando se deu erro
-		    	if(!$res){
-		    		echo '<script>alert("erro");</script>';
-		    	};
-		    }else{
-		    	echo '<script>alert("erro");</script>';
-		    };
+	    	//verificando se deu erro
+	    	if(!$res){
+	    		echo '<script>alert("erro");</script>';
+	    	};
 	    }
 
 	    //adicionar autor
 	    function addAutor($nome){
-	    	//quantos autores tem
-    		$sql = 'SELECT COUNT(cd) AS vl from autor';
+	    	$cd = 0;
+	        for ($i=1; $i>0; $i++) { 
+	        	//var para verificar exitencia do autor
+	    		$sql = 'SELECT * FROM autor WHERE cd = '.$i;
+	        	//pesquisar no banco
+	        	$res = $GLOBALS['con']->query($sql);
+
+	        	if(!$res){
+	        		$cd = $i;
+	        		break; 
+	        	}
+	        }
+        	//var para enviar para o banco
+	    	$sql = 'INSERT INTO autor (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
 	    	//enviar para o banco
 	    	$res = $GLOBALS['con']->query($sql);
-	    	if ($res){
-	    		//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-	        	//var para enviar para o banco
-		    	$sql = 'INSERT INTO autor (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
-		    	//enviar para o banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	//verificando se deu erro
-		    	if(!$res){
-		    		echo '<script>alert("erro");</script>';
-		    	};
-		    }else{
-		    	echo '<script>alert("erro");</script>';
-		    };
+	    	//verificando se deu erro
+	    	if(!$res){
+	    		echo '<script>alert("erro");</script>';
+	    	};
 	    }
 
 	    //adicionar editora
 	    function addEditora($nome){
-	    	//quantos editoras tem
-    		$sql = 'SELECT COUNT(cd) AS vl from editora';
+	    	$cd = 0;
+	        for ($i=1; $i>0; $i++) { 
+	        	//var para verificar exitencia da editora
+	    		$sql = 'SELECT * FROM editora WHERE cd = '.$i;
+	        	//pesquisar no banco
+	        	$res = $GLOBALS['con']->query($sql);
+	        	if(!$res){
+	        		$cd = $i;
+	        		break; 
+	        	}
+	        }
+        	//var para enviar para o banco
+	    	$sql = 'INSERT INTO editora (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
 	    	//enviar para o banco
 	    	$res = $GLOBALS['con']->query($sql);
-	    	if ($res){
-	    		//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-	        	//var para enviar para o banco
-		    	$sql = 'INSERT INTO editora (cd, nome) VALUES ('.$cd.',"'.$nome.'")';
-		    	//enviar para o banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	//verificando se deu erro
-		    	if(!$res){
-		    		echo '<script>alert("erro");</script>';
-		    	};
-		    }else{
-		    	echo '<script>alert("erro");</script>';
-		    };
+	    	//verificando se deu erro
+	    	if(!$res){
+	    		echo '<script>alert("erro");</script>';
+	    	};
 	    }
 
 		//criar livro
 		function addLivro($nome, $ano, $qtd, $sinopse, $id_editora, $id_genero, $capa){
-			//quantos livros tem
-    		$sql = 'SELECT COUNT(cd) AS vl from livro';
+			$cd = 0;
+	        for ($i=1; $i>0; $i++) { 
+	        	//var para verificar exitencia do livro
+	    		$sql0 = 'SELECT * FROM livro WHERE cd = '.$i;
+	        	//pesquisar no banco
+	        	$res0 = $GLOBALS['con']->query($sql);
+	        	if(!$res0){
+	        		$cd = $i;
+	        		break; 
+	        	}
+	        }
+        	//var para enviar para o banco
+	    	$sql = 'INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ('.$cd.', 0, "'.$nome.'", '.$ano.', '.$qtd.', "'.$sinopse.'", "'.$capa.'", '.$cd.', 0, '.$id_editora.', '.$id_genero.')';
 	    	//enviar para o banco
 	    	$res = $GLOBALS['con']->query($sql);
-	    	if ($res){
-	    		//amarzenado valor
-	        	$valores = $res->fetch_object();
-	        	//criando o cd perfeito
-	        	$cd = $valores->vl + 1;
-	        	//var para enviar para o banco
-		    	$sql = 'INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ('.$cd.', 0, "'.$nome.'", '.$ano.', '.$qtd.', "'.$sinopse.'", "'.$capa.'", '.$cd.', 0, '.$id_editora.', '.$id_genero.')';
-		    	//enviar para o banco
-		    	$res = $GLOBALS['con']->query($sql);
-		    	//verificando se deu erro
-		    	if(!$res){
-		    		echo '<script>alert("erro");</script>';
-		    	};
-		    }else{
-		    	echo '<script>alert("erro");</script>';
-		    };
+	    	//verificando se deu erro
+	    	if(!$res){
+	    		echo '<script>alert("erro");</script>';
+	    	};
 		}
 
 		//criar autoria de um livro
@@ -281,6 +276,16 @@
 	//excluir items
 	    //excluir genero
 	    function deleteGenero($cd){
+	    	$sql0 = 'SELECT * FROM livro WHERE id_editora ='.$cd;
+	    	$res0 = $GLOBALS['con']->query($sql);
+	    	if ($res0){
+	    		$sq = 'UPDATE autor_livro SET id_editora = 0 WHERE id_editora ='.$cd;
+	    		$rs = $GLOBALS['con']->query($sql);
+	    		if (!$rs){
+	    			echo '<script>alert("erro");</script>';	
+	    		}
+	    	}
+
 	    	$sql = 'DELETE FROM genero WHERE cd='.$cd;
 	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
@@ -291,6 +296,16 @@
 	    }
 	    //excluir autor
 	    function deleteAutor($cd){
+	    	$sql0 = 'SELECT * FROM autor_livro WHERE id_autor ='.$cd;
+	    	$res0 = $GLOBALS['con']->query($sql);
+	    	if ($res0){
+	    		$sq = 'DELETE FROM autor_livro WHERE id_autor ='.$cd;
+	    		$rs = $GLOBALS['con']->query($sql);
+	    		if (!$rs){
+	    			echo '<script>alert("erro");</script>';	
+	    		}
+	    	}
+
 	    	$sql = 'DELETE FROM autor WHERE cd='.$cd;
 	    	$res = $GLOBALS['con']->query($sql);
 	    	if($res){
@@ -311,7 +326,11 @@
 	    		echo '<script>alert("erro");</script>';
 	    	};	
 	    }
-	
+	//update items
+	    //autor
+	    //editora
+	    //livro
+	    //autoria
 	//listar items
 	    //listar autores
 	    function listAutor($nome){

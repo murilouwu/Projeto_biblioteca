@@ -43,18 +43,3 @@ INSERT INTO editora (cd, nome) VALUES ( 5, "Disney");
 INSERT INTO editora (cd, nome) VALUES ( 6, "EA");
 INSERT INTO editora (cd, nome) VALUES ( 7, "Punk-edit");
 INSERT INTO editora (cd, nome) VALUES ( 8, "Marbel");
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
-/*livros*/
-
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 1, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 2, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 3, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 4, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 5, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 6, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 7, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-INSERT INTO livro (cd, nota, titulo, ano, qtd, sinopse, capa, rank, leitores, id_editora, id_genero) VALUES ( 9, 0, "nome", ano, qtd, "sinopse", "capa", cd, 0, id_editora, id_genero);
-/*---------------------------------------------------------------------------------------------------------------------------------------------*/
-/*Autorias*/
-
-INSERT INTO autor_livro (id_autor, id_livro) VALUES ( , );

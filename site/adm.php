@@ -95,7 +95,7 @@
 											<input type="number" name="cd" class="ocultar" value="'.$autores[$i]->cd.'">
 											<input type="text" name="nome" placeholder="Digite o novo nome">
 											<label for="foto_autor">Foto</label>
-											<input id="foto_autor" type="file" name="foto" accept="image/png, image/jpeg">
+											<input id="foto_autor" type="file" name="foto" accept="image/png">
 										</div>
 										<div class="pt3">
 											<input type="submit" name="UpdateAutor" value="Atualizar">
@@ -132,6 +132,28 @@
 					<div id="pageD" class="page">
 						<h1>Livros</h1>
 						<?php
+							$texto = array( '0'=>'', '1'=>'', '2'=>'');
+							
+							$genero = listGenero(null);
+							for ($i=0; $i<count($genero); $i++) { 
+								$texto['0'] = $texto['0'].'
+									<option value="'.$genero[$i]->cd.'">'.$genero[$i]->nome.'</option>
+								';
+							};
+							$editoras = listEditora(null);
+							for ($i=0; $i<count($editoras); $i++) { 
+								$texto['1'] = $texto['1'].'
+									<option value="'.$editoras[$i]->cd.'">'.$editoras[$i]->nome.'</option>
+								';
+							};
+							
+							$autores = listAutor(null);
+							for ($i=0; $i<count($autores); $i++) { 
+								$texto['2'] = $texto['2'].'
+									<option value="'.$autores[$i]->cd.'">'.$autores[$i]->nome.'</option>
+								';
+							};
+							
 							$livros = listLivro(null);
 							for ($i=0; $i<count($livros); $i++) { 
 								$texto = '
@@ -146,6 +168,17 @@
 											<input type="date" name="ano">
 											<input type="number" name="qtd" placeholder="Digite a quatidade atual dos livros">
 											<textarea name="sinopse" placeholder="digite a  nova sinopse do livro aqui"></textarea>
+										</div>
+										<div class="pt2_0">
+											<select name="genero">
+													'.$texto['0'].'
+											</select>
+											<select name="editora">
+													'.$texto['1'].'
+											</select>
+											<select name="autor">
+													'.$texto['2'].'
+											</select>
 										</div>
 										<div class="pt3">
 											<label for="foto_livro">Enviar arquivo</label>
@@ -208,7 +241,7 @@
 						<form class="cad" enctype="multipart/form-data" method="post">
 							<input type="text" name="nome" placeholder="Digite o nome desse autor">
 							<label for="foto_autorC">Enviar Imagem</label>
-							<input id="foto_autorC" type="file" name="foto" accept="image/png, image/jpeg">
+							<input id="foto_autorC" type="file" name="foto" accept="image/png">
 							<input type="submit" name="CrateAutor" value="Adicionar autor">
 						</form>
 					</div>
@@ -263,7 +296,7 @@
 								?>
 							</select>
 							<label for="foto_livroC">Enviar foto</label>
-							<input id="foto_livroC" type="file" name="foto" accept="image/png, image/jpeg">
+							<input id="foto_livroC" type="file" name="foto" accept="image/png">
 							<input type="submit" name="CreateBook" value="Adiconar Livro">
 						</form>
 					</div>
@@ -331,7 +364,7 @@
 			//extenção de imagem
 			$ext = strtolower(substr($_FILES['foto']['name'],-4));
 			//novo noma para imagem
-			$NewNomeImg = $cod."-".$_POST['quantidade']."-".$_POST['ano']."-".$_POST['autor'].$ext;
+			$NewNomeImg = $cod."-".$_POST['ano']."-".$_POST['autor'].$ext;
 			//destino da imagem
 			$destino = 'imgs/livros/'.$NewNomeImg;
 			//imagem
@@ -374,4 +407,12 @@
 
 				deleteAutor($cd);
 			}
+			//muda foto
+		//editora
+			//deletar
+			if(isset($_POST['deleteEdit'])){
+
+			}
+		//livro
+			//deletar
 ?>

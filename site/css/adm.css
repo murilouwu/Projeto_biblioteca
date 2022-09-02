@@ -319,6 +319,17 @@
 									    background-color: var(--thema);
 									    box-shadow: 0 0 10px;
 									}
+							main .aba .body .page .info2 .pt2-0{
+								width: 100%;
+								height: 40%;
+								display: flex;
+								flex-direction: row;
+								justify-content: space-around;
+								align-items: center;
+								color: var(--corB);
+								font-size: 3vh;
+								font-weight: bold;
+							}
 							main .aba .body .page .info2 .pt3{
 								width: 100%;
 								height: 40%;
