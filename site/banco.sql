@@ -2,7 +2,7 @@ CREATE DATABASE biblioteca;
 USE biblioteca;
 
 CREATE TABLE usuario(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	rm INT,
 	nome VARCHAR(60),
 	email VARCHAR(120),
@@ -17,23 +17,23 @@ CREATE TABLE usuario(
 );
 
 CREATE TABLE autor(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(60),
 	img LONGTEXT
 );
 
 CREATE TABLE editora(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(80)
 );
 
 CREATE TABLE genero(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	nome VARCHAR(100)
 );
 
 CREATE TABLE livro(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	nota INT(1),
 	titulo VARCHAR(200),
 	ano INT(4),
@@ -49,7 +49,7 @@ CREATE TABLE livro(
 );
 
 CREATE TABLE emprestimo(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	dt_minpegar DATE,
 	dt_maxpegar DATE,
 	dt_devolucao DATE,
@@ -59,7 +59,7 @@ CREATE TABLE emprestimo(
 );
 
 CREATE TABLE lista_livroslidos(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	nota INT(1),
 	id_usuario INT,
 	id_livro INT,
@@ -68,7 +68,7 @@ CREATE TABLE lista_livroslidos(
 );
 
 CREATE TABLE lista_espera(
-	cd INT PRIMARY KEY,
+	cd INT PRIMARY KEY AUTO_INCREMENT,
 	possicao INT,
 	id_usuario INT,
 	id_livro INT,
