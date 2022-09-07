@@ -13,11 +13,13 @@ CREATE TABLE usuario(
 	bio LONGTEXT,
 	status VARCHAR(100),
 	adm INT(1)
+	img LONGTEXT
 );
 
 CREATE TABLE autor(
 	cd INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(60)
+	nome VARCHAR(60),
+	img LONGTEXT
 );
 
 CREATE TABLE editora(
