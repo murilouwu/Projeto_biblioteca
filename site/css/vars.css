@@ -1,0 +1,33 @@
+  :root{
+    --thema: rgb(32 30 38);
+    --corA: rgb(251 203 44);
+    --corB: rgb(251 243 244);
+  }
+  *{
+    margin: 0px;
+    padding: 0px;
+    transition: all 0.25s;
+  }
+  /*web-kit*/
+    input[type=file]{
+      display: none;
+    }
+    ::-webkit-inner-spin-button{
+
+      -webkit-appearance: none;
+    }
+    ::-webkit-scrollbar{
+
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background: var(--corA);
+      border-radius: 3px;
+    }
+    input:focus-visible, input:focus, select:focus-visible, select:focus, textarea:focus-visible, textarea:focus{
+      outline: none;
+    }
+    .ocultar{
+      display: none;
+    }

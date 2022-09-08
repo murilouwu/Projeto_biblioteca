@@ -1,0 +1,305 @@
+@import "vars.css";
+
+	body{
+		background-color: var(--thema);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		overflow-x: hidden;
+	}
+		header{
+			width: 100%;
+			height: 7vh;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-items: center;
+			border-bottom: 2px solid var(--corA);
+		}
+			header a{
+				width: 4vw;
+				height: 5vh;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+				header a:hover{
+					height: 7vh;
+				}
+			header button{
+				width: 32%;
+				height: 70%;
+				border: 2px solid var(--corA);
+				border-radius: 50px;
+				background-color: var(--thema);
+				color: var(--corA);
+				font-size: 3vh;
+				font-weight: bold;
+			}
+				header button:hover{
+					width: 45%;
+					border: none;
+					height: 80%;
+					background-color: var(--corA);
+					color: var(--thema);
+				}
+		main{
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 3vh;
+		}
+			main .aba{
+				width: 89%;
+				display: flex;
+				flex-direction: column;
+				padding: 2vh;
+				justify-content: center;
+				align-items: center;
+			}
+				main .aba .header{
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					align-items: center;
+					height: 9vh;
+					padding: 2vh 0vw 1vh 0vw;
+					border-bottom: 2px solid var(--corA);
+				}
+					main .aba .header button{
+						width: 16%;
+						height: 5vh;
+						border-radius: 50px;
+						border: solid 2px var(--corA);
+						color: var(--corA);
+						background-color: var(--thema);
+						font-weight: bold;
+						font-size: 3vh;
+						box-shadow: 1px 2px 5px var(--corA);
+					}
+						main .aba .header button:hover{
+							width: 20%;
+							box-shadow: none;
+							border: none;
+							background-color: var(--corA);
+							color: var(--thema);
+							height: 7vh;
+							border-radius: 15px;
+						}	
+				main .aba .body{
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				}
+					main .aba .body .page{
+						width: 65%;
+						display: none;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+					}
+						main .aba .body .page hr{
+							width: 65vw;
+							margin: 4vh;
+							color: var(--corA);
+							border: 3px solid var(--thema);
+							box-shadow: 0px 0px 10px var(--corA);
+							border-radius: 50px;
+						}
+						main .aba .body .page h1{
+							width: 57%;
+							color: var(--corB);
+							text-align: center;
+							padding: 1vh;
+							border-bottom: solid 3px var(--corA);
+						}
+						main .aba .body .page .info{
+							width: 100%;
+							margin-top: 2vh;
+							border: 4px solid var(--corA);
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							border-radius: 9px;
+							padding: 2vh;
+						}
+							main .aba .body .page .info h1{
+								width: 100%;
+								background-color: var(--corA);
+								color: var(--thema);
+								text-align: center;
+								padding: 1vh;
+								border-radius: 16px;
+								margin-bottom: 3vh;
+								font-size: 4vh;
+								font-weight: bold;
+								box-shadow: 4px 5px 10px rgba(0 0 0 / 80%);
+							}
+							main .aba .body .page .info p{
+								text-align: center;
+								color: var(--corB);
+								font-weight: bold;
+								font-size: 4vh;
+							}
+							main .aba .body .page .info img{
+								color: var(--corA);
+								height: 19vh;
+								padding: 5vh;
+							}
+							main .aba .body .page .info label{
+								color: var(--corA);
+								margin-bottom: 2vh;
+								font-weight: bold;
+								font-size: 4vh;
+							}
+							main .aba .body .page .info input[type=text], main .aba .body .page .info input[type=date], main .aba .body .page .info input[type=number]{
+								width: 80%;
+								height: 7vh;
+								font-size: 3vh;
+								font-weight: bold;
+								color: var(--corA);
+								background-color: var(--thema);
+								border: 3px solid;
+								border-radius: 26px;
+								text-align: center;
+								margin: 2vh;
+							}
+								main .aba .body .page .info input[type=submit]{
+									width: 50%;
+									font-size: 4vh;
+									padding: 1vh;
+									font-weight: bold;
+									color: var(--thema);
+									background-color: var(--corA);
+									border: none;
+									border-radius: 26px;
+									margin-bottom: 1vh;
+									margin-top: 1vh;
+									text-align: center;
+								}
+									main .aba .body .page .info input[type=submit]:hover{
+										width: 55%;
+										height: 9vh;
+										font-size: 4vh;
+										font-weight: bold;
+										color: var(--corA);
+										background-color: var(--thema);
+										border: 3px solid;
+										box-shadow: 0px 0px 5px var(--corA);
+										border-radius: 26px;
+										text-align: center;
+										margin: 2vh;
+									}
+							main .aba .body .page .info select{
+								width: 68%;
+								text-align: center;
+								color: var(--thema);
+								font-size: 4vh;
+								font-weight: bold;
+								border-radius: 12px;
+								padding: 2vh;
+								background-color: var(--corA);
+								border: none;
+								margin: 2vh;
+							}
+							main .aba .body .page .info textarea{
+								width: 75%;
+								height: 21vh;
+								font-size: 3vh;
+								font-weight: bold;
+								color: var(--corA);
+								background-color: var(--thema);
+								border: 3px solid;
+								border-radius: 26px;
+								text-align: center;
+								margin-top: 1vh;
+								resize: none;
+							}
+						main .aba .body .page .cad{
+							width: 100%;
+							margin-top: 2vh;
+							border: 4px solid var(--corA);
+							padding: 2vh 1vw;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							border-radius: 9px;
+							align-items: center;
+						}
+							main .aba .body .page .cad h2{
+								color: var(--corB);
+								font-weight: bold;
+								font-size: 5vh;
+								margin: 1vh 0vw;
+							}
+							main .aba .body .page .cad input[type=submit]:hover{
+								width: 40%;
+								background-color: var(--corA);
+								color: var(--thema);
+							}
+							main .aba .body .page .cad input{
+								    width: 36%;
+								    height: 6vh;
+								    font-size: 3vh;
+								    font-weight: bold;
+								    color: var(--corA);
+								    background-color: var(--thema);
+								    border: 3px solid;
+								    border-radius: 26px;
+								    text-align: center;
+								    margin-bottom: 1vh;
+							}
+								main .aba .body .page .cad input:focus{
+									outline: none;
+								}
+							main .aba .body .page .cad select{
+								    width: 36%;
+    								height: 6vh;
+    								font-size: 3vh;
+    								font-weight: bold;
+   									color: var(--corA);
+    								background-color: var(--thema);
+    								border: 3px solid;
+    								border-radius: 26px;
+    								text-align: center;
+    								margin-top: 1vh;
+							}
+							main .aba .body .page .cad textarea{
+								width: 36%;
+    							height: 14vh;
+    							font-size: 3vh;
+    							font-weight: bold;
+    							color: var(--corA);
+    							background-color: var(--thema);
+    							border: 3px solid;
+    							border-radius: 26px;
+    							text-align: center;
+    							margin-top: 1vh;
+    							resize: none;
+							}
+							main .aba .body .page .cad label{
+								width: 27%;
+								font-size: 3vh;
+								padding: 1vh;
+								font-weight: bold;
+								color: var(--thema);
+								background-color: var(--corA);
+								border: none;
+								border-radius: 26px;
+								margin-bottom: 1vh;
+								margin-top: 1vh;
+								text-align: center;
+							}
+								main .aba .body .page .cad label:hover{
+									width: 39%;
+									height: 59%;
+									color: var(--corA);
+									background-color: var(--thema);
+									box-shadow: 0 0 10px;
+								}
