@@ -248,10 +248,10 @@
 	    }
 
 	    //listar editora
-	    function listEditora($nome){
+	    function listEditora($cd){
 	    	$retorno = null;
-	    	if($nome !== null){
-	    		$sql = 'SELECT * FROM editora WHERE nome = "'.$nome.'"';
+	    	if($cd !== null){
+	    		$sql = 'SELECT * FROM editora WHERE cd = "'.$cd.'"';
 		    	$res = $GLOBALS['con']->query($sql);
 		    	if($res->num_rows > 0){
 		    		$retorno = $res->fetch_object();
@@ -326,6 +326,36 @@
 	    			$cont = 0;
 	    			for($i=0; $i>-1; $i++){
 		    			$sql='SELECT * FROM livro WHERE cd='.$i;
+		    			$res = $GLOBALS['con']->query($sql);
+		    			if ($res->num_rows>0){
+		    				$retorno[$cont] = $res->fetch_object();
+		    				$cont = $cont+1;
+		    				if(count($retorno) == $chave){
+		    					break;
+		    				}
+		    			}
+		    		}
+		        };
+	    	};
+	    	return $retorno;
+	    }
+	    //autoria autor
+	    function listAutoral($cd){
+	    	$retorno = null;
+	    	if($nome !== null){
+	    		$sql = 'SELECT * FROM autor_livro WHERE id_livro = "'.$cd.'"';
+		    	$res = $GLOBALS['con']->query($sql);
+		    	if($res->num_rows > 0){
+		    		$retorno = $res->fetch_object();
+		    	};
+	    	}else{
+	    		$sql0 = 'SELECT COUNT(cd) AS vl from autor_livro';
+		    	$res0 = $GLOBALS['con']->query($sql0);
+		    	$chave = $res0->fetch_object()->vl;
+		    	if ($chave > 0){
+	    			$cont = 0;
+	    			for($i=0; $i>-1; $i++){
+		    			$sql='SELECT * FROM autor_livro WHERE id_livro='.$i;
 		    			$res = $GLOBALS['con']->query($sql);
 		    			if ($res->num_rows>0){
 		    				$retorno[$cont] = $res->fetch_object();
