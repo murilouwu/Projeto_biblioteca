@@ -8,35 +8,50 @@
 		<title>Suche</title>
 	</head>
 	<body>
-		<fieldset class="pesquisa">
-			<input type="text" id="search">
-			<button>Pesquisar</button>
-		</fieldset>
+		<form method="post" class="pesquisa">
+			<input type="text" name="pes">
+			<input type="submit" name="env">
+		</form>
 		<div class="res">
 			<div class="head">
-				<label>Titulo <input type="checkbox"></label>
-				<label>Sinopse <input type="checkbox"></label>
-				<label>Categoria <input type="checkbox"></label>
-				<label>Autor <input type="checkbox"></label>
+				<label>Titulo <div class="boll" id="box1"><input type="checkbox" id="check1"></div></label>
+				<label>Sinopse <div class="boll"><input type="checkbox"></div></label>
+				<label>Categoria <div class="boll"><input type="checkbox"> </div></label>
+				<label>Autor <div class="boll"><input type="checkbox"> </div></label> 
 			</div>
 			<div class="body">
 				<div class="card">
-					<img src="imgs/itens/Title.png">
-					<div class="info">
+					<img src="imgs/itens/Title.png" onclick="drop(this, '#info_cd', 0)">
+					<form method="post" class="info" id="info_cd">
+						<input type="text" name="cd" value="1">
 						<label class="titulo">Titulo</label>
 						<label class="autor">by Autor</label>
 						<label class="rank">#rank, nota: *****</label>
 						<hr>
-						<label class="genero">Genero</label>
-						<label class="editora">Editora</label>
-						<label class="qnt">Quantidade</label>
+						<div class="es">
+							<label class="genero">Genero</label>
+							<label class="editora">Editora</label>
+							<label class="qnt">Quantidade</label>
+						</div>
 						<p class="sinopse">
 							
 						</p>
-						<button>Pegar um</button>
-					</div>
+						<input type="submit" value="Pegar um" name="ver_livro">
+					</form>
 				</div>
 			</div>
 		</div>
+		<script src="java.js"></script>
+		<script>
+			document.querySelector('#check1').addEventListener('change', ()=>{
+				let box = document.querySelector('#check1');
+				let div = document.querySelector('#box1').style;
+				if(box.checked){
+					div.backgroundColor = 'red';
+				}else{
+					div.backgroundColor = 'black';
+				}
+			});
+		</script>
 	</body>
 </html>
